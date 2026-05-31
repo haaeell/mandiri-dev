@@ -26,7 +26,17 @@ class ExampleTest extends TestCase
             ->assertOk()
             ->assertHeader('Content-Type', 'application/xml')
             ->assertSee('<loc>'.config('seo.site_url').'/</loc>', false)
+            ->assertSee('/portofolio', false)
             ->assertSee('/project/sistem-sekolah-digital', false);
+    }
+
+    public function test_portfolio_page_lists_projects(): void
+    {
+        $this->get('/portofolio')
+            ->assertOk()
+            ->assertSee('Portofolio Project - Mandiri Dev')
+            ->assertSee('Sistem Sekolah Digital')
+            ->assertSee('Lihat Detail');
     }
 
     public function test_robots_points_to_the_sitemap(): void

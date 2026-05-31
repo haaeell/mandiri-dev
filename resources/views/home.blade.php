@@ -187,12 +187,16 @@
         <section class="relative px-0 py-12 md:py-20" id="showcase">
             @include('partials.admin-edit', ['section' => 'showcases'])
             <div class="mx-auto w-[min(1180px,calc(100%_-_32px))] md:w-[min(1180px,calc(100%_-_40px))]">
-                <div class="reveal mx-auto mb-10 max-w-3xl text-center">
-                    <p class="m-0 font-black text-blue-600">Showcase Project</p>
-                    <h2 class="my-2 text-3xl font-black leading-tight tracking-tight md:text-5xl">{{ $content['showcases']['heading'] }}</h2>
+                <div class="reveal mb-8 flex flex-col gap-5 md:mb-10 md:flex-row md:items-end md:justify-between">
+                    <div class="max-w-3xl">
+                        <p class="m-0 font-black text-blue-600">Showcase Project</p>
+                        <h2 class="my-2 text-3xl font-black leading-tight tracking-tight md:text-5xl">{{ $content['showcases']['heading'] }}</h2>
+                        <span class="text-slate-500 dark:text-slate-300">Beberapa project pilihan. Untuk daftar lengkap, buka halaman portofolio.</span>
+                    </div>
+                    <a class="inline-flex items-center justify-center gap-2 rounded-full bg-blue-600 px-5 py-3 text-sm font-black text-white shadow-lg shadow-blue-600/20 transition hover:-translate-y-0.5 hover:bg-blue-700" href="{{ route('projects.index') }}">Lihat Semua Portofolio <i class="size-4" data-lucide="arrow-up-right"></i></a>
                 </div>
-                <div class="grid gap-4 md:grid-cols-3">
-                    @foreach ($content['showcases']['items'] as $showcase)
+                <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+                    @foreach (array_slice($content['showcases']['items'], 0, 6) as $showcase)
                         <article class="reveal tilt-card group relative overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-2 hover:border-blue-200 hover:shadow-2xl hover:shadow-blue-600/10 dark:border-white/10 dark:bg-slate-900">
                             <div class="absolute inset-x-6 -top-10 h-24 rounded-full bg-blue-500/20 blur-3xl transition group-hover:bg-cyan-400/30"></div>
                             <div class="relative flex min-h-[230px] flex-col justify-end overflow-hidden p-5 text-white {{ !$showcase['thumbnail'] ? 'bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,.26),transparent_28%),linear-gradient(135deg,#0f172a,#2563eb,#06b6d4)]' : '' }}">

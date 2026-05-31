@@ -12,6 +12,7 @@ Route::get('/sitemap.xml', [SiteController::class, 'sitemap'])->name('sitemap');
 Route::get('/robots.txt', [SiteController::class, 'robots'])->name('robots');
 Route::get('/artikel', [ArticleController::class, 'index'])->name('articles.index');
 Route::get('/artikel/{article}', [ArticleController::class, 'show'])->name('articles.show');
+Route::get('/portofolio', [SiteController::class, 'portfolio'])->name('projects.index');
 Route::get('/project/{slug}', [SiteController::class, 'project'])->name('projects.show');
 
 Route::middleware('guest')->group(function () {

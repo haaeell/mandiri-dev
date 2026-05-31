@@ -55,8 +55,24 @@ class SiteController extends Controller
             : collect();
 
         return response()
-            ->view('seo.sitemap', ['pages' => collect(config('seo.sitemap'))->concat($projects)->concat($articles)])
+            ->view('seo.sitemap', ['pages' => collect(config('seo.sitemap'))->push([
+                'url' => route('projects.index'),
+                'changefreq' => 'weekly',
+                'priority' => '0.8',
+            ])->concat($projects)->concat($articles)])
             ->header('Content-Type', 'application/xml');
+    }
+
+    public function portfolio(): View
+    {
+        $content = $this->contents->all();
+        $seo = $this->contents->section('seo');
+
+        return view('projects.index', [
+            'projects' => $content['showcases']['items'],
+            'heading' => $content['showcases']['heading'],
+            'whatsappUrl' => 'https://wa.me/'.$seo['whatsapp_number'].'?text='.rawurlencode('Halo Mandiri Dev, saya ingin konsultasi project digital'),
+        ]);
     }
 
     public function project(string $slug): View
