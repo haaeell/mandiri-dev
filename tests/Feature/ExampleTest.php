@@ -14,11 +14,10 @@ class ExampleTest extends TestCase
         $response->assertOk()
             ->assertSee('<title>Mandiri Dev - Software House &amp; Digital Development</title>', false)
             ->assertSee('<script type="application/ld+json">', false)
-            ->assertSee('<link rel="stylesheet" href="/css/site.css">', false)
-            ->assertSee('<link rel="stylesheet" href="/css/landing-wow.css">', false)
+            ->assertSee('/build/assets/app-', false)
             ->assertSee('family=Poppins', false)
             ->assertSee('data-lucide="sparkles"', false)
-            ->assertSee('Bangun Solusi Digital');
+            ->assertSee('Build sistem digital yang');
     }
 
     public function test_sitemap_contains_the_home_page(): void
@@ -45,8 +44,8 @@ class ExampleTest extends TestCase
 
     public function test_public_site_assets_exist(): void
     {
-        $this->assertFileExists(public_path('css/site.css'));
-        $this->assertFileExists(public_path('css/landing-wow.css'));
+        $this->assertFileExists(base_path('resources/css/app.css'));
+        $this->assertFileExists(base_path('vite.config.js'));
         $this->assertFileExists(public_path('js/site.js'));
     }
 }

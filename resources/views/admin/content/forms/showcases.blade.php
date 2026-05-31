@@ -34,8 +34,7 @@
                         value="{{ $item['website_url'] ?? '' }}"></label>
                 <label>Tag<small>Pisahkan setiap tag menggunakan koma.</small><input
                         name="content[items][{{ $index }}][tags]" value="{{ $item['tags'] }}" required></label>
-                <label>Foto pendukung<small>Pilih beberapa gambar sekaligus. Gambar akan menjadi slider setelah thumbnail
-                        utama.</small><input type="file" name="gallery_files[{{ $index }}][]" accept="image/*"
+                <label>Foto pendukung<small>Boleh upload lebih dari satu gambar sekaligus, jumlahnya bebas sesuai kebutuhan admin. Semua foto akan masuk galeri setelah thumbnail utama.</small><input type="file" name="gallery_files[{{ $index }}][]" accept="image/*"
                         multiple></label>
                 @if (!empty($item['gallery']))
                     <div class="gallery-admin-grid" data-gallery-admin>

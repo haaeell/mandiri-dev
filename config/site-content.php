@@ -8,9 +8,9 @@ return [
     ],
     'hero' => [
         'eyebrow' => 'Software House | Web Development | AI Integration',
-        'title' => 'Bangun Solusi Digital',
-        'highlight' => 'Premium & Profesional',
-        'description' => 'Mandiri Dev membantu membuat website, aplikasi berbasis web, sistem sekolah, integrasi AI, dashboard, dan sistem manajemen yang rapi, modern, cepat, dan siap digunakan.',
+        'title' => 'Build sistem digital yang',
+        'highlight' => 'rapi, cepat, dan siap scale.',
+        'description' => 'Mandiri Dev membantu bisnis, sekolah, dan organisasi membangun website, dashboard, sistem manajemen, dan integrasi AI dari kebutuhan nyata sampai siap online.',
         'stats' => [
             ['value' => '35+', 'label' => 'Project'],
             ['value' => '98%', 'label' => 'Responsive'],

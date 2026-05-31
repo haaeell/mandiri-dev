@@ -1,13 +1,17 @@
 <?php
 
 use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\ArticleController as AdminArticleController;
 use App\Http\Controllers\Admin\ContentController;
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [SiteController::class, 'home'])->name('home');
 Route::get('/sitemap.xml', [SiteController::class, 'sitemap'])->name('sitemap');
 Route::get('/robots.txt', [SiteController::class, 'robots'])->name('robots');
+Route::get('/artikel', [ArticleController::class, 'index'])->name('articles.index');
+Route::get('/artikel/{article}', [ArticleController::class, 'show'])->name('articles.show');
 Route::get('/project/{slug}', [SiteController::class, 'project'])->name('projects.show');
 
 Route::middleware('guest')->group(function () {
@@ -21,4 +25,5 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::get('/content', [ContentController::class, 'index'])->name('content.index');
     Route::get('/content/{section}/edit', [ContentController::class, 'edit'])->name('content.edit');
     Route::put('/content/{section}', [ContentController::class, 'update'])->name('content.update');
+    Route::resource('articles', AdminArticleController::class)->except('show');
 });

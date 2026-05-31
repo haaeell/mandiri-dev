@@ -11,7 +11,7 @@ return [
             'title' => 'Mandiri Dev - Software House & Digital Development',
             'description' => $description,
             'canonical' => $siteUrl.'/',
-            'image' => $siteUrl.'/logo.png',
+            'image' => $siteUrl.'/mandiridevpng.png',
         ],
     ],
     'sitemap' => [

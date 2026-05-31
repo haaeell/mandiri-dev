@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Services\SiteContentService;
 use App\Services\RichTextSanitizer;
+use App\Models\Article;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\View\View;
 
 class SiteController extends Controller
@@ -26,6 +28,9 @@ class SiteController extends Controller
 
         return view('home', [
             'content' => $content,
+            'articles' => Schema::hasTable('articles')
+                ? Article::query()->published()->latest('published_at')->take(3)->get()
+                : collect(),
             'seo' => $seo,
             'whatsappUrl' => $whatsappUrl,
             'adminPreview' => request()->boolean('admin_preview') && auth()->user()?->is_admin,
@@ -41,8 +46,16 @@ class SiteController extends Controller
                 'priority' => '0.7',
             ]);
 
+        $articles = Schema::hasTable('articles')
+            ? Article::query()->published()->latest('published_at')->get()->map(fn (Article $article) => [
+                'url' => route('articles.show', $article),
+                'changefreq' => 'monthly',
+                'priority' => '0.8',
+            ])
+            : collect();
+
         return response()
-            ->view('seo.sitemap', ['pages' => collect(config('seo.sitemap'))->concat($projects)])
+            ->view('seo.sitemap', ['pages' => collect(config('seo.sitemap'))->concat($projects)->concat($articles)])
             ->header('Content-Type', 'application/xml');
     }
 
