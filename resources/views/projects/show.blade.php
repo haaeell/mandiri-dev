@@ -9,7 +9,7 @@
     <link rel="icon" href="/mandiridevpng.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Caveat:wght@600&family=IBM+Plex+Mono:wght@500;600&family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script src="https://unpkg.com/lucide@latest" defer></script>
 </head>
@@ -26,23 +26,7 @@
     $projectImageUrls = array_map($imageUrl, $projectImages);
 @endphp
 
-<header class="sticky top-0 z-10 border-b border-slate-200/80 bg-white/90 shadow-sm backdrop-blur-xl dark:border-white/10 dark:bg-slate-950/90">
-    <div class="mx-auto flex min-h-14 w-[min(1180px,calc(100%_-_24px))] items-center justify-between gap-3 md:min-h-[78px] md:w-[min(1180px,calc(100%_-_40px))] md:gap-5">
-        <a class="flex items-center gap-2.5" href="{{ route('home') }}">
-            <img class="size-10 rounded-2xl md:size-12" src="/mandiridevpng.png" alt="Mandiri Dev" width="48" height="48">
-            <span class="grid">
-                <strong class="text-sm md:text-base">Mandiri Dev</strong>
-                <small class="hidden text-[11px] text-slate-500 dark:text-slate-300 sm:block">Digital Innovation</small>
-            </span>
-        </a>
-
-        <a class="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-blue-50 px-3 py-2 text-[11px] font-black text-blue-600 dark:bg-blue-500/15 dark:text-blue-200 md:gap-2 md:text-xs" href="{{ route('home') }}#showcase">
-            <i class="size-4" data-lucide="arrow-left"></i>
-            <span class="hidden sm:inline">Kembali ke Showcase</span>
-            <span class="sm:hidden">Kembali</span>
-        </a>
-    </div>
-</header>
+@include('partials.public-navbar')
 
 <main class="min-h-[calc(100vh-150px)]">
     <section class="px-0 py-4 md:py-20">
@@ -103,21 +87,21 @@
             </aside>
 
             <article class="order-1 min-w-0 overflow-hidden rounded-3xl border border-slate-200 bg-white p-4 shadow-xl shadow-slate-900/10 dark:border-white/10 dark:bg-slate-900 md:rounded-[1.875rem] md:p-8 md:shadow-2xl lg:order-2">
-                <div class="mb-4 inline-flex max-w-full items-center gap-2 rounded-full bg-blue-50 px-3.5 py-2 text-[11px] font-black uppercase tracking-wider text-blue-700 dark:bg-blue-500/15 dark:text-blue-200 md:mb-5 md:text-[13px]">
+                <div class="font-code mb-4 inline-flex max-w-full items-center gap-2 rounded-full bg-blue-50 px-3.5 py-2 text-[10px] font-semibold uppercase tracking-wider text-blue-700 dark:bg-blue-500/15 dark:text-blue-200 md:mb-5 md:text-xs">
                     <i class="size-4" data-lucide="layers-3"></i>
                     <span class="truncate">{{ $project['category'] }}</span>
                 </div>
 
-                <h1 class="mb-4 mt-0 break-words text-2xl font-black leading-tight md:text-5xl">{{ $project['title'] }}</h1>
+                <h1 class="font-display mb-4 mt-0 break-words text-2xl font-bold leading-tight md:text-5xl">{{ $project['title'] }}</h1>
 
                 <div class="mb-5 flex flex-wrap gap-2 md:mb-7">
                     @foreach (array_filter(array_map('trim', explode(',', $project['tags']))) as $tag)
-                        <span class="max-w-full break-words rounded-full bg-blue-50 px-3 py-2 text-[11px] font-bold text-blue-700 dark:bg-blue-500/15 dark:text-blue-200 md:text-xs">{{ $tag }}</span>
+                        <span class="font-code max-w-full break-words rounded-full bg-blue-50 px-3 py-2 text-[10px] font-medium text-blue-700 dark:bg-blue-500/15 dark:text-blue-200 md:text-[11px]">{{ $tag }}</span>
                     @endforeach
                 </div>
 
                 <div class="mb-6 rounded-3xl border border-blue-100 bg-blue-50 p-4 dark:border-blue-400/20 dark:bg-blue-500/10 md:mb-7">
-                    <h2 class="mb-2 mt-0 text-lg font-black text-slate-950 dark:text-white md:mb-3 md:text-xl">Tertarik membuat project seperti ini?</h2>
+                    <h2 class="font-display mb-2 mt-0 text-lg font-bold text-slate-950 dark:text-white md:mb-3 md:text-xl">Tertarik membuat project seperti ini?</h2>
                     <p class="mt-0 text-sm leading-7 text-slate-600 dark:text-slate-300">Lihat referensi websitenya atau konsultasikan kebutuhan sistem Anda langsung dengan tim Mandiri Dev.</p>
                     <div class="flex flex-col gap-3 sm:flex-row">
                         @if ($project['website_url'])
@@ -134,9 +118,9 @@
                     </div>
                 </div>
 
-                <h2 class="mb-3 mt-0 text-xl font-extrabold md:text-2xl">Tentang Project</h2>
+                <h2 class="font-handwritten mb-3 mt-0 text-2xl font-semibold text-blue-600 md:text-3xl">Tentang Project</h2>
 
-                <div class="prose prose-slate max-w-none break-words text-sm leading-7 text-slate-600 prose-headings:text-slate-900 prose-a:font-bold prose-a:text-blue-600 prose-blockquote:border-blue-600 prose-blockquote:bg-blue-50 prose-blockquote:px-4 prose-blockquote:py-2 prose-li:my-1 prose-img:max-w-full dark:prose-invert dark:text-slate-300 dark:prose-a:text-blue-200 md:text-[15px] md:leading-8 [&_*]:max-w-full">
+                <div class="editorial-prose prose prose-slate max-w-none break-words text-sm leading-7 text-slate-600 prose-headings:text-slate-900 prose-a:font-bold prose-a:text-blue-600 prose-blockquote:border-blue-600 prose-blockquote:bg-blue-50 prose-blockquote:px-4 prose-blockquote:py-2 prose-li:my-1 prose-img:max-w-full dark:prose-invert dark:text-slate-300 dark:prose-a:text-blue-200 md:text-[15px] md:leading-8 [&_*]:max-w-full">
                     {!! $detailsHtml !!}
                 </div>
 
@@ -258,6 +242,7 @@
         });
     });
 </script>
+<script src="/js/site.js" defer></script>
 
 </body>
 </html>

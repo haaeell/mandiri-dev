@@ -15,9 +15,9 @@ class ExampleTest extends TestCase
             ->assertSee('<title>Mandiri Dev - Software House &amp; Digital Development</title>', false)
             ->assertSee('<script type="application/ld+json">', false)
             ->assertSee('/build/assets/app-', false)
-            ->assertSee('family=Poppins', false)
+            ->assertSee('family=Plus+Jakarta+Sans', false)
             ->assertSee('data-lucide="sparkles"', false)
-            ->assertSee('Build sistem digital yang');
+            ->assertSee('Bangun Sistem Digital yang');
     }
 
     public function test_sitemap_contains_the_home_page(): void
@@ -36,6 +36,7 @@ class ExampleTest extends TestCase
             ->assertOk()
             ->assertSee('Portofolio Project - Mandiri Dev')
             ->assertSee('Sistem Sekolah Digital')
+            ->assertSee('aria-label="Navigasi utama"', false)
             ->assertSee('Lihat Detail');
     }
 

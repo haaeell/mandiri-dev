@@ -23,10 +23,14 @@ class ArticleTest extends TestCase
             'published_at' => now(),
         ]);
 
-        $this->get('/artikel')->assertOk()->assertSee($article->title);
+        $this->get('/artikel')
+            ->assertOk()
+            ->assertSee($article->title)
+            ->assertSee('aria-label="Navigasi utama"', false);
         $this->get('/artikel/'.$article->slug)
             ->assertOk()
             ->assertSee($article->title)
+            ->assertSee('aria-label="Navigasi utama"', false)
             ->assertSee('<h2>SEO teknis</h2>', false);
 
         $this->get('/sitemap.xml')

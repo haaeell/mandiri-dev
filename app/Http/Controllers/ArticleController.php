@@ -17,8 +17,11 @@ class ArticleController extends Controller
 
     public function index(): View
     {
+        $seo = $this->contents->section('seo');
+
         return view('articles.index', [
             'articles' => Article::query()->published()->latest('published_at')->paginate(9),
+            'whatsappUrl' => 'https://wa.me/'.$seo['whatsapp_number'].'?text='.rawurlencode('Halo Mandiri Dev, saya ingin konsultasi project digital'),
             'seo' => [
                 'title' => 'Artikel Web Development, SEO, dan Sistem Digital - Mandiri Dev',
                 'description' => 'Insight Mandiri Dev tentang web development, SEO teknis, sistem sekolah, dashboard bisnis, dan integrasi AI.',

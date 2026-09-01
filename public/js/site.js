@@ -83,7 +83,7 @@ if (!reduceMotion && window.matchMedia('(pointer: fine)').matches) {
     });
 }
 
-const navLinks = document.querySelectorAll('.desktop-nav a, [data-bottom-nav] a[href^="#"]');
+const navLinks = document.querySelectorAll('.desktop-nav a[href^="#"], [data-bottom-nav] a[href^="#"]');
 const sections = [...navLinks].map((link) => document.querySelector(link.getAttribute('href'))).filter(Boolean);
 const setActiveNav = (id) => {
     navLinks.forEach((link) => {

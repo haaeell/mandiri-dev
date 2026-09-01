@@ -101,6 +101,7 @@ class AdminPanelTest extends TestCase
             ->assertSee('Foto pendukung 1')
             ->assertSee('Fitur utama')
             ->assertSee('<h2>Fitur utama</h2>', false)
+            ->assertSee('aria-label="Navigasi utama"', false)
             ->assertSee('data-slider-next', false)
             ->assertSee('Lihat Website');
     }

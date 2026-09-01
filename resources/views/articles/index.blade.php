@@ -9,24 +9,19 @@
     <link rel="icon" href="/mandiridevpng.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Caveat:wght@600&family=IBM+Plex+Mono:wght@500;600&family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script src="https://unpkg.com/lucide@latest" defer></script>
 </head>
 <body class="bg-slate-950 text-white antialiased">
-    <header class="border-b border-white/10 bg-slate-950/90 backdrop-blur-xl">
-        <div class="mx-auto flex min-h-16 w-[min(1180px,calc(100%_-_32px))] items-center justify-between gap-3">
-            <a class="flex items-center gap-2.5" href="{{ route('home') }}"><img class="size-11 rounded-2xl" src="/mandiridevpng.png" alt="Mandiri Dev"><span class="grid"><strong>Mandiri Dev</strong><small class="text-[11px] text-slate-400">Developer Insights</small></span></a>
-            <a class="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-2 text-xs font-black text-white" href="{{ route('home') }}"><i class="size-4" data-lucide="arrow-left"></i>Home</a>
-        </div>
-    </header>
+    @include('partials.public-navbar')
 
     <main>
         <section class="relative overflow-hidden py-16">
             <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(37,99,235,.35),transparent_32%),radial-gradient(circle_at_80%_0%,rgba(6,182,212,.22),transparent_26%)]"></div>
             <div class="relative mx-auto w-[min(980px,calc(100%_-_32px))] text-center">
-                <p class="mb-3 inline-flex rounded-full border border-blue-400/25 bg-blue-500/10 px-3 py-1 text-xs font-black text-blue-200">Artikel SEO</p>
-                <h1 class="m-0 text-4xl font-black leading-tight md:text-6xl">Catatan developer untuk website yang lebih siap tumbuh.</h1>
+                <p class="font-handwritten mb-3 text-2xl font-semibold text-blue-200">Artikel SEO</p>
+                <h1 class="font-display m-0 text-4xl font-bold leading-tight md:text-6xl">Catatan developer untuk website yang <span class="font-editorial font-normal italic text-blue-300">lebih siap tumbuh.</span></h1>
                 <p class="mx-auto mt-5 max-w-2xl text-slate-300">{{ $seo['description'] }}</p>
             </div>
         </section>
@@ -39,14 +34,14 @@
                             @if ($article->image)
                                 <img class="h-44 w-full object-cover transition duration-500 group-hover:scale-105" src="{{ str_starts_with($article->image, 'http') ? $article->image : asset('storage/'.$article->image) }}" alt="{{ $article->title }}">
                             @else
-                                <div class="grid h-44 place-items-center bg-gradient-to-br from-blue-600 to-cyan-400 text-sm font-black">Mandiri Dev Insight</div>
+                                <div class="grid h-44 place-items-center bg-blue-600 text-sm font-black">Mandiri Dev Insight</div>
                             @endif
                         </a>
                         <div class="mb-4 flex items-center justify-between gap-3">
-                            <span class="rounded-full bg-blue-500/15 px-3 py-1 text-[11px] font-black text-blue-200">{{ $article->category }}</span>
-                            <span class="text-[11px] font-bold text-slate-400">{{ $article->published_at?->format('d M Y') }}</span>
+                            <span class="font-code rounded-full bg-blue-500/15 px-3 py-1 text-[10px] font-semibold text-blue-200">{{ $article->category }}</span>
+                            <span class="font-code text-[10px] font-medium text-slate-400">{{ $article->published_at?->format('d M Y') }}</span>
                         </div>
-                        <h2 class="text-xl font-black leading-tight">{{ $article->title }}</h2>
+                        <h2 class="font-display text-xl font-bold leading-tight">{{ $article->title }}</h2>
                         <p class="text-sm leading-7 text-slate-300">{{ $article->excerpt }}</p>
                         <a class="mt-4 inline-flex items-center gap-2 rounded-full bg-white px-4 py-2.5 text-xs font-black text-slate-950 transition group-hover:bg-blue-500 group-hover:text-white" href="{{ route('articles.show', $article) }}">Baca Artikel <i class="size-4" data-lucide="arrow-up-right"></i></a>
                     </article>
@@ -57,6 +52,6 @@
             <div class="mx-auto mt-8 w-[min(1180px,calc(100%_-_32px))]">{{ $articles->links() }}</div>
         </section>
     </main>
-    <script>window.addEventListener('DOMContentLoaded', () => window.lucide && window.lucide.createIcons());</script>
+    <script src="/js/site.js" defer></script>
 </body>
 </html>
