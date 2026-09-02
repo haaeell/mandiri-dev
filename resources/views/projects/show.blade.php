@@ -30,8 +30,8 @@
 
 <main class="min-h-[calc(100vh-150px)]">
     <section class="px-0 py-4 md:py-20">
-        <div class="mx-auto grid w-[min(1180px,calc(100%_-_24px))] min-w-0 items-start gap-4 md:w-[min(1180px,calc(100%_-_40px))] md:gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(360px,.95fr)]">
-            <aside class="order-2 min-w-0 overflow-hidden rounded-3xl border border-slate-200 bg-white p-2.5 shadow-xl shadow-slate-900/10 dark:border-white/10 dark:bg-slate-900 md:rounded-[1.875rem] md:p-4 md:shadow-2xl lg:sticky lg:top-24 lg:order-1" data-project-gallery>
+        <div class="mx-auto grid w-[min(1180px,calc(100%_-_24px))] min-w-0 gap-4 md:w-[min(1180px,calc(100%_-_40px))] md:gap-8">
+            <aside class="min-w-0 overflow-hidden rounded-3xl border border-slate-200 bg-white p-2.5 shadow-xl shadow-slate-900/10 dark:border-white/10 dark:bg-slate-900 md:rounded-[1.875rem] md:p-4 md:shadow-2xl" data-project-gallery>
                 <div class="relative flex min-h-[190px] items-center justify-center overflow-hidden rounded-2xl border border-blue-600/10 bg-gradient-to-br from-blue-50 to-white dark:from-blue-950/40 dark:to-slate-950 md:min-h-[420px] md:rounded-3xl">
                     @if (count($projectImages))
                         <button class="absolute left-2 top-1/2 z-[5] grid size-9 -translate-y-1/2 place-items-center rounded-full border-0 bg-white/95 text-blue-700 shadow-xl shadow-slate-900/15 md:left-3 md:size-11" type="button" data-gallery-prev>
@@ -86,7 +86,7 @@
                 @endif
             </aside>
 
-            <article class="order-1 min-w-0 overflow-hidden rounded-3xl border border-slate-200 bg-white p-4 shadow-xl shadow-slate-900/10 dark:border-white/10 dark:bg-slate-900 md:rounded-[1.875rem] md:p-8 md:shadow-2xl lg:order-2">
+            <article class="min-w-0 overflow-hidden rounded-3xl border border-slate-200 bg-white p-4 shadow-xl shadow-slate-900/10 dark:border-white/10 dark:bg-slate-900 md:rounded-[1.875rem] md:p-8 md:shadow-2xl">
                 <div class="font-code mb-4 inline-flex max-w-full items-center gap-2 rounded-full bg-blue-50 px-3.5 py-2 text-[10px] font-semibold uppercase tracking-wider text-blue-700 dark:bg-blue-500/15 dark:text-blue-200 md:mb-5 md:text-xs">
                     <i class="size-4" data-lucide="layers-3"></i>
                     <span class="truncate">{{ $project['category'] }}</span>

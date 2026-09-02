@@ -119,7 +119,7 @@
             </div>
         </section>
 
-        <section class="relative px-0 py-12 md:py-20" id="tentang">
+        <section class="home-section home-section--about relative px-0 py-12 md:py-20" id="tentang">
             <div class="mx-auto grid w-[min(1180px,calc(100%_-_32px))] gap-8 md:w-[min(1180px,calc(100%_-_40px))] lg:grid-cols-[.9fr_1.1fr] lg:items-center">
                 <div class="reveal">
                     <p class="font-handwritten m-0 text-2xl font-semibold text-blue-600">Tentang Kami</p>
@@ -135,7 +135,7 @@
             </div>
         </section>
 
-        <section class="relative bg-slate-50/80 px-0 py-12 md:py-20 dark:bg-white/[.03]" id="layanan">
+        <section class="home-section home-section--services relative px-0 py-12 md:py-20" id="layanan">
             @include('partials.admin-edit', ['section' => 'services'])
             <div class="mx-auto w-[min(1180px,calc(100%_-_32px))] md:w-[min(1180px,calc(100%_-_40px))]">
                 <div class="reveal mx-auto mb-10 max-w-3xl text-center">
@@ -155,7 +155,7 @@
             </div>
         </section>
 
-        <section class="relative px-0 py-12 md:py-20" id="showcase">
+        <section class="home-section home-section--showcase relative px-0 py-12 md:py-20" id="showcase">
             @include('partials.admin-edit', ['section' => 'showcases'])
             <div class="mx-auto w-[min(1180px,calc(100%_-_32px))] md:w-[min(1180px,calc(100%_-_40px))]">
                 <div class="reveal mb-8 flex flex-col gap-5 md:mb-10 md:flex-row md:items-end md:justify-between">
@@ -194,7 +194,7 @@
             </div>
         </section>
 
-        <section class="relative bg-slate-50/80 px-0 py-12 md:py-20 dark:bg-white/[.03]" id="proses">
+        <section class="home-section home-section--process relative px-0 py-12 md:py-20" id="proses">
             @include('partials.admin-edit', ['section' => 'processes'])
             <div class="mx-auto w-[min(1180px,calc(100%_-_32px))] md:w-[min(1180px,calc(100%_-_40px))]">
                 <div class="reveal mx-auto mb-10 max-w-3xl text-center">
@@ -215,7 +215,7 @@
             </div>
         </section>
 
-        <section class="relative px-0 py-12 md:py-20" id="testimoni">
+        <section class="home-section home-section--testimonials relative px-0 py-12 md:py-20" id="testimoni">
             <div class="mx-auto w-[min(1180px,calc(100%_-_32px))] md:w-[min(1180px,calc(100%_-_40px))]">
                 <div class="reveal mx-auto mb-10 max-w-3xl text-center">
                     <p class="font-handwritten m-0 text-2xl font-semibold text-blue-600">Testimoni</p>
@@ -242,7 +242,7 @@
             </div>
         </section>
 
-        <section class="relative px-0 py-12 md:py-20" id="faq">
+        <section class="home-section home-section--faq relative px-0 py-12 md:py-20" id="faq">
             @include('partials.admin-edit', ['section' => 'faqs'])
             <div class="mx-auto w-[min(850px,calc(100%_-_32px))] md:w-[min(850px,calc(100%_-_40px))]">
                 <div class="reveal mx-auto mb-10 max-w-3xl text-center">
@@ -261,7 +261,7 @@
             </div>
         </section>
 
-        <section class="relative bg-slate-950 px-0 py-12 text-white md:py-20" id="artikel">
+        <section class="home-section home-section--articles relative px-0 py-12 text-white md:py-20" id="artikel">
             <div class="mx-auto w-[min(1180px,calc(100%_-_32px))] md:w-[min(1180px,calc(100%_-_40px))]">
                 <div class="reveal mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
                     <div>
@@ -296,7 +296,7 @@
             </div>
         </section>
 
-        <section class="relative px-0 py-12 md:py-20">
+        <section class="home-section home-section--cta relative px-0 py-12 md:py-20">
             @include('partials.admin-edit', ['section' => 'cta'])
             <div class="reveal mx-auto w-[min(1180px,calc(100%_-_32px))] rounded-2xl bg-blue-600 p-8 text-center text-white md:w-[min(1180px,calc(100%_-_40px))] md:p-12">
                 <p class="font-handwritten m-0 inline-flex items-center gap-2 text-2xl font-semibold text-blue-100"><i class="size-4" data-lucide="sparkles"></i>{{ $content['cta']['eyebrow'] }}</p>
