@@ -50,6 +50,64 @@
     font-size: 1.125rem;
 }
 
+.editorial-prose {
+    color: #52627b;
+}
+
+.editorial-prose > * + * {
+    margin-top: 1rem;
+}
+
+.editorial-prose :where(h2, h3, h4) {
+    color: #0f172a;
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+.editorial-prose :where(h2) {
+    margin-top: 2rem;
+    font-size: 1.5rem;
+}
+
+.editorial-prose :where(h3) {
+    margin-top: 1.75rem;
+    font-size: 1.25rem;
+}
+
+.editorial-prose :where(h4) {
+    margin-top: 1.5rem;
+    font-size: 1.125rem;
+}
+
+.editorial-prose :where(ul, ol) {
+    padding-left: 1.5rem;
+}
+
+.editorial-prose :where(ul) {
+    list-style-type: disc;
+}
+
+.editorial-prose :where(ol) {
+    list-style-type: decimal;
+}
+
+.editorial-prose :where(li) {
+    padding-left: .35rem;
+}
+
+.editorial-prose :where(li + li) {
+    margin-top: .45rem;
+}
+
+.editorial-prose :where(a) {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.dark .editorial-prose :where(h2, h3, h4) {
+    color: #f8fafc;
+}
+
 .hero-showcase {
     background: #fbfdff;
 }
