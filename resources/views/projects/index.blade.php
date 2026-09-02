@@ -27,16 +27,15 @@
             <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
                 @foreach ($projects as $project)
                     <article class="group relative overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-2 hover:border-blue-200 hover:shadow-2xl hover:shadow-blue-600/10 dark:border-white/10 dark:bg-slate-900">
-                        <div class="relative flex min-h-[230px] flex-col justify-end overflow-hidden p-5 text-white {{ !$project['thumbnail'] ? 'bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,.26),transparent_28%),linear-gradient(135deg,#0f172a,#2563eb,#06b6d4)]' : '' }}">
+                        <div class="relative flex min-h-[230px] items-center justify-center overflow-hidden text-white {{ !$project['thumbnail'] ? 'bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,.26),transparent_28%),linear-gradient(135deg,#0f172a,#2563eb,#06b6d4)]' : 'bg-slate-900' }}">
                             @if ($project['thumbnail'])
                                 <img class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105" src="{{ str_starts_with($project['thumbnail'], 'http') ? $project['thumbnail'] : asset('storage/' . $project['thumbnail']) }}" alt="{{ $project['title'] }}">
-                                <div class="absolute inset-0 bg-gradient-to-b from-slate-900/15 to-slate-900/60"></div>
                             @endif
                             <div class="absolute right-4 top-4 grid size-11 place-items-center rounded-2xl border border-white/20 bg-white/15 backdrop-blur transition group-hover:rotate-6 group-hover:scale-110"><i class="size-5" data-lucide="code-2"></i></div>
-                            <small class="font-code relative rounded-full bg-white/15 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider backdrop-blur">{{ $project['category'] }}</small>
-                            <h2 class="font-display relative my-2 text-2xl font-semibold">{{ $project['title'] }}</h2>
                         </div>
                         <div class="p-5">
+                            <small class="font-code inline-flex rounded-full bg-blue-50 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-blue-700 dark:bg-blue-600/15 dark:text-blue-200">{{ $project['category'] }}</small>
+                            <h2 class="font-display mb-3 mt-3 text-2xl font-semibold leading-tight">{{ $project['title'] }}</h2>
                             <p class="mb-0 text-sm text-slate-500 dark:text-slate-300">{{ $project['description'] }}</p>
                             <div class="mt-4 flex flex-wrap gap-2">
                                 @foreach (array_filter(array_map('trim', explode(',', $project['tags']))) as $tag)
